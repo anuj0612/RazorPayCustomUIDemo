@@ -1,19 +1,15 @@
 package com.example.razorpaydemo;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.Button;
-
+import androidx.appcompat.app.AppCompatActivity;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
 import com.razorpay.PaymentResultListener;
 import com.razorpay.Razorpay;
-
-import org.json.JSONException;
 import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity {
@@ -21,7 +17,6 @@ public class MainActivity extends AppCompatActivity {
     WebView payment_webview;
     Button btpayNow;
     Razorpay razorpay;
-    String[] payment = {"card", "emi", "upi"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,36 +27,6 @@ public class MainActivity extends AppCompatActivity {
         btpayNow = findViewById(R.id.btpayNow);
         payment_webview = findViewById(R.id.payment_webview);
 
-
-/*
-
-        btpayNow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                razorpay = new Razorpay(MainActivity.this, "rzp_test_cJEAa6uhvGCgcQ");
-              //  payment_webview.setVisibility(View.GONE);
-                razorpay.setWebView(payment_webview);
-                razorpay.getPaymentMethods(new Razorpay.PaymentMethodsCallback() {
-                    @Override
-                    public void onPaymentMethodsReceived(String result) {
-                        try {
-                            JSONObject paymentMethods = new JSONObject(result);
-                            Logger.d(paymentMethods);
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-
-                    @Override
-                    public void onError(String error){
-                        Logger.d(error);
-                    }
-                });
-
-            }
-        });
-*/
-
         btpayNow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -69,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
                 razorpay = new Razorpay(MainActivity.this, "rzp_test_cJEAa6uhvGCgcQ");
                 payment_webview.setVisibility(View.GONE);
                 razorpay.setWebView(payment_webview);
-
 
                 try {
 
